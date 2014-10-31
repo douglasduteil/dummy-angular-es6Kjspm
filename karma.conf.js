@@ -28,14 +28,17 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/**/*.js' : ['traceur']
+      // don't preprocess the src files with Traceur as ismailia will
+      // compile them
+      'src/**/!(*.spec).js': ['coverage'],
+      'src/**/*.spec.js': ['traceur']
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
 
     // web server port
@@ -77,6 +80,29 @@ module.exports = function(config) {
         'node_modules/rtts-assert/dist/es6/assert.js'
       ],
       loadFiles: ['src/**/*.spec.js']
+    },
+
+    coverageReporter: {
+      // configure the reporter to use ismailia for JavaScript coverage
+      instrumenter: {
+        '**/*.js': 'ismailia'
+      },
+      instrumenterOptions: {
+        ismailia: {
+          traceur: {
+            options: traceurOptions
+          }
+        }
+      },
+      reporters: [
+        {
+          type: 'text'
+        },
+        {
+          type: 'html',
+          dir: 'coverage/'
+        }
+      ]
     }
   });
 };

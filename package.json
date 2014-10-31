@@ -22,7 +22,8 @@
     "karma-chrome-launcher": "^0.1.5",
     "karma-jasmine": "^0.1.5",
     "karma-jspm": "^1.0.1",
-    "karma-traceur-preprocessor": "^0.4.0"
+    "karma-traceur-preprocessor": "^0.4.0",
+    "karma-coverage": "douglasduteil/karma-coverage#chore-use-ismailia-with-feat-ismailia-custom-traceur-options"
   },
   "jspm": {
     "name": "dummy-angular-es6Kjspm",

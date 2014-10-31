@@ -7,5 +7,9 @@ export default angular.module('foo', [])
 function FooController($q){
 	this.bar = function(){
 		return $q.when('far');
-	}
+	};
+
+	this.far = function(){
+		return $q.when('bar');
+	};
 }
