@@ -13,3 +13,5 @@ function FooController($q){
 		return $q.when('bar');
 	};
 }
+
+angular.bootstrap(document, ['foo']);
