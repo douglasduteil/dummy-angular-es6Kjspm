@@ -33,8 +33,8 @@
     },
     "configFile": "jspm.conf.js",
     "dependencies": {
-      "angular": "^1.3.0",
-      "angular-mocks": "^1.3.0"
+      "angular": "^1.3.1",
+      "angular-mocks": "^1.3.1"
     }
   }
 }
