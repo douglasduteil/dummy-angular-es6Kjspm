@@ -18,14 +18,14 @@ describe('something', function() {
   });
 
   it('shoult define', () => {
-    expect(fooCtrl.bar).toEqual(jasmine.any(Function));
+    expect(fooCtrl.bar).to.be.a('function');
   });
 
   it('shoult return a promise', () => {
     var dummy = 0;
     fooCtrl.bar().then(() => ++dummy);
     $rootScope.$apply();
-    expect(dummy).toBe(1);
+    expect(dummy).to.be.equal(1);
   });
 });
 
